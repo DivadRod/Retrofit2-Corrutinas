@@ -2,6 +2,7 @@ package com.example.retrofit2_corrutinas
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -52,10 +53,16 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
                     adapter.notifyDataSetChanged()
 
                 }else {
-                    //show error
+                    showError()
                 }
+                hidekeyboard()
             }
         }
+    }
+
+    private fun hidekeyboard() {
+        val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(binding.viewRoot.windowToken, 0)
     }
 
     private fun showError() {
