@@ -1,0 +1,9 @@
+package com.example.retrofit2_corrutinas
+
+import com.google.gson.annotations.SerializedName
+
+data class DogsResponse (
+    @SerializedName("status") var status:String,
+    @SerializedName("message") var images: List<String>
+    )
+
